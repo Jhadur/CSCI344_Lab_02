@@ -58,8 +58,9 @@ function main() {
     //1. Create a spotter and get it to insert tweets into the DOM
 	
 	var count = 0;
+	var limit = false;
 	var s = new Spotter("twitter.search", 
-						{q: "Giants", period:120},
+						{q: "Giants", period:90},
 						{buffer:true, bufferTimeout:750}
 					    );
 					   
@@ -77,7 +78,7 @@ function main() {
 	
 	
 	count++;
-	var limit = false;
+	
 		if (count === 11)
 		{ if (limit === false)
 			{limit = true;
