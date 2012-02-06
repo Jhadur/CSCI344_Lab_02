@@ -56,6 +56,7 @@ function main() {
     //your tasks
 
     //1. Create a spotter and get it to insert tweets into the DOM
+	
 	var count = 0;
 	var s = new Spotter("twitter.search", 
 						{q: "Giants", period:120},
@@ -69,25 +70,39 @@ function main() {
     //2. Add profile images (tweet.profile_image_url)
 	
 	/*var profile_image = "<img src='"+tweet.profile_image_url+"' />";
-		profile_image.hide();
-		$("#tweets").prepend("<p>"+profile_image+tweet.text+"</p>");
-		profile_image.slideDown();*/
-		//"<li style='display:none;color:blue;background-color:white;'>"
+	profile_image.hide();
+	$("#tweets").prepend("<p>"+profile_image+tweet.text+"</p>");
+	profile_image.slideDown();*/
+	//"<li style='display:none;color:blue;background-color:white;'>"
 	
 	
-	count = count + 1;
+	count++;
+	var limit = false;
+		if (count === 11)
+		{ if (limit === false)
+			{limit = true;
+			}
+			count = 1;
+		}
+		if (limit === true)
+		{	
+			var x = document.getElementById("tweets").getElementsByTagName(count);
+			
+			x.parentNode.childNodes(x);
+		
+		}
+		
+		
 	var color;
 		
-	var profile_image="<img src='"+tweet.profile_image_url+"' />";
-	
 	if (count % 2 === 0) {
 		color = "red";
 	}
 	else {
 		color = "blue";
 	}
-	
-	var slide = $("<p class='"+color+"'>"+profile_image+tweet.text+"</p>");
+	var profile_image="<img src='"+tweet.profile_image_url+"' />";
+	var slide = $("<p class='"+color+" id="+count+"'>"+profile_image+tweet.text+"</p>");
 		slide.hide();
 		$("#tweets").prepend(slide);
 		slide.slideDown();
