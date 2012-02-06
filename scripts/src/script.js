@@ -86,9 +86,9 @@ function main() {
 		}
 		if (limit === true)
 		{	
-			var x = document.getElementById("tweets").getElementsByTagName(count);
+			var x = document.getElementById("tweets").getElementsByTagName("p")[9];
 			
-			x.parentNode.childNodes(x);
+			x.parentNode.removeChild(x);
 		
 		}
 		
